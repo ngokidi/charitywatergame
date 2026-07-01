@@ -83,36 +83,66 @@
         </button>
 
     </main>
+<main class="game-board">
 
-    <div id="message">
-        💧 Click "Move Forward" to begin your journey!
+    <div class="player">
+        <img
+            src="img/water-can-transparent.png"
+            alt="Water Can"
+            id="player-image"
+        >
     </div>
 
-    <div class="fact-box">
-        Did you know? Every step toward clean water can improve health, education, and opportunity for communities around the world.
+    <p class="instruction">
+        Clean up pollution and move toward clean water!
+    </p>
+
+    <p>
+        Pollution Remaining:
+        <span id="trash-count">4</span>
+    </p>
+
+    <div class="trash-container">
+
+        <div
+            class="trash obstacle-item"
+            onclick="cleanTrash(this)">
+            🥤
+        </div>
+
+        <div
+            class="trash obstacle-item"
+            onclick="cleanTrash(this)">
+            🗑️
+        </div>
+
+        <div
+            class="trash obstacle-item"
+            onclick="cleanTrash(this)">
+            🧴
+        </div>
+
+        <div
+            class="trash obstacle-item"
+            onclick="cleanTrash(this)">
+            ☣️
+        </div>
+
     </div>
 
-    <button class="reset-btn" onclick="resetGame()">
-        Restart Game
+    <button class="path" onclick="gainPoints()">
+        ➡️ Move Forward
     </button>
 
-    <footer>
-        <h3>Learn More About charity: water</h3>
+    <div class="goal-water">
+        💧💧💧
+    </div>
 
-        <a
-            href="https://www.charitywater.org"
-            target="_blank">
-            Visit charity: water
-        </a>
+    <button class="goal" onclick="reachGoal()">
+        🚰 Reach Clean Water
+    </button>
 
-        <a
-            href="https://www.charitywater.org/donate"
-            target="_blank">
-            Donate to Support Clean Water
-        </a>
-    </footer>
-
-    <script src="script.js"></script>
+</main>
 
 </body>
 </html>
