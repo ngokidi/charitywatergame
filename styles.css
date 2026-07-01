@@ -104,16 +104,21 @@ progress {
 .game-board {
     background-color: white;
     max-width: 700px;
-    margin: auto;
+    width: 90%;
+
+    margin: 30px auto;
+
     padding: 30px;
-    border-radius: 15px;
+
+    border-radius: 20px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 20px;
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
 }
 
 /* Water Can */
@@ -124,7 +129,7 @@ progress {
 }
 
 #player-image {
-    width: 60px;
+    width: 40px;
     height: auto;
     transition: all 0.3s ease;
 }
@@ -147,14 +152,17 @@ progress {
 .trash-path {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
+    gap: 50px;
+
+    width: 100%;
+
+    margin: 20px 0;
 }
 
 .trash {
-    font-size: 3rem;
+    font-size: 4rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform .2s ease;
 }
 
 .trash:hover {
@@ -164,7 +172,7 @@ progress {
 /* Goal */
 
 .goal-water {
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 /* Buttons */
