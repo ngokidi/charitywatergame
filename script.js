@@ -9,7 +9,7 @@ const progressBar = document.getElementById("progress-bar");
 const messageDisplay = document.getElementById("message");
 const player = document.getElementById("player-image");
 
-/* Milestone Messages */
+/* Milestones */
 
 const milestones = [
     {
@@ -18,7 +18,7 @@ const milestones = [
     },
     {
         score: 40,
-        message: "🚰 Halfway to clean water!"
+        message: "🚰 Halfway there!"
     },
     {
         score: 60,
@@ -26,9 +26,10 @@ const milestones = [
     }
 ];
 
-/* Update Score */
+/* Update score */
 
 function updateScore() {
+
     scoreDisplay.textContent = score;
 
     if (score > highScore) {
@@ -46,9 +47,11 @@ function updateDifficulty() {
 
     if (difficulty === "easy") {
         winGoal = 3;
-    } else if (difficulty === "normal") {
+    }
+    else if (difficulty === "normal") {
         winGoal = 5;
-    } else {
+    }
+    else {
         winGoal = 8;
     }
 
@@ -68,15 +71,18 @@ function gainPoints() {
 
     progressBar.value = progress;
 
-    player.style.transform = "translateY(-10px)";
+    player.style.transform =
+        "translateY(-10px)";
 
     setTimeout(() => {
-        player.style.transform = "translateY(0)";
+        player.style.transform =
+            "translateY(0)";
     }, 200);
 
     messageDisplay.textContent =
-        "✅ Great job! You're moving toward clean water!";
-    messageDisplay.style.color = "#159A48";
+        "✅ You're moving closer to clean water!";
+    messageDisplay.style.color =
+        "#159A48";
 
     milestones.forEach(milestone => {
 
@@ -112,20 +118,20 @@ function cleanTrash(trashItem) {
         .textContent = trashLeft;
 
     messageDisplay.textContent =
-        "♻️ Great job! You cleaned up pollution.";
+        "♻️ Awesome! You removed pollution.";
 
     messageDisplay.style.color =
         "#159A48";
 }
 
-/* Reach Clean Water */
+/* Reach Goal */
 
 function reachGoal() {
 
     if (progress < winGoal) {
 
         messageDisplay.textContent =
-            `Keep going! You need ${winGoal - progress} more steps.`;
+            `Keep going! ${winGoal - progress} more steps needed.`;
 
         messageDisplay.style.color =
             "#F5402C";
@@ -136,7 +142,7 @@ function reachGoal() {
     winGame();
 }
 
-/* Win Game */
+/* Win */
 
 function winGame() {
 
@@ -149,8 +155,11 @@ function winGame() {
     document.querySelectorAll(
         ".path, .goal"
     ).forEach(button => {
+
         button.disabled = true;
     });
+
+    /* Celebration flash */
 
     document.body.style.backgroundColor =
         "#4FCB53";
@@ -163,7 +172,7 @@ function winGame() {
     }, 1500);
 }
 
-/* Reset Game */
+/* Reset */
 
 function resetGame() {
 
@@ -180,32 +189,33 @@ function resetGame() {
     messageDisplay.style.color =
         "#2E9DF7";
 
-    player.style.transform = "none";
-
-    /* Re-enable buttons */
+    document.body.style.backgroundColor =
+        "#8BD1CB";
 
     document.querySelectorAll(
         ".path, .goal"
     ).forEach(button => {
+
         button.disabled = false;
     });
 
-    /* Restore trash items */
+    /* Restore Trash */
 
-    const trashContainer =
-        document.querySelector(".trash-container");
+    const trashPath =
+        document.querySelector(".trash-path");
 
-    trashContainer.innerHTML = `
-        <div class="trash obstacle-item" onclick="cleanTrash(this)">🥤</div>
-        <div class="trash obstacle-item" onclick="cleanTrash(this)">🗑️</div>
-        <div class="trash obstacle-item" onclick="cleanTrash(this)">🧴</div>
-        <div class="trash obstacle-item" onclick="cleanTrash(this)">☣️</div>
+    trashPath.innerHTML = `
+        <div class="trash" onclick="cleanTrash(this)">🥤</div>
+        <div class="trash" onclick="cleanTrash(this)">🗑️</div>
+        <div class="trash" onclick="cleanTrash(this)">🧴</div>
+        <div class="trash" onclick="cleanTrash(this)">☣️</div>
     `;
 
-    document.getElementById("trash-count").textContent = 4;
+    document.getElementById("trash-count")
+        .textContent = 4;
 }
 
-/* Initial Setup */
+/* Initialize */
 
 document
     .getElementById("difficulty")
