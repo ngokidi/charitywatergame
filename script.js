@@ -128,6 +128,20 @@ function cleanTrash(trashItem) {
 
 function reachGoal() {
 
+    const trashLeft =
+        document.querySelectorAll(".trash").length;
+
+    if (trashLeft > 0) {
+
+        messageDisplay.textContent =
+            "🗑️ Clean up all pollution before reaching clean water!";
+
+        messageDisplay.style.color =
+            "#F5402C";
+
+        return;
+    }
+
     if (progress < winGoal) {
 
         messageDisplay.textContent =
