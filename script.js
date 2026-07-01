@@ -26,10 +26,9 @@ const milestones = [
     }
 ];
 
-/* Update score */
+/* Update Score */
 
 function updateScore() {
-
     scoreDisplay.textContent = score;
 
     if (score > highScore) {
@@ -41,17 +40,14 @@ function updateScore() {
 /* Difficulty */
 
 function updateDifficulty() {
-
     const difficulty =
         document.getElementById("difficulty").value;
 
     if (difficulty === "easy") {
         winGoal = 3;
-    }
-    else if (difficulty === "normal") {
+    } else if (difficulty === "normal") {
         winGoal = 5;
-    }
-    else {
+    } else {
         winGoal = 8;
     }
 
@@ -81,10 +77,11 @@ function gainPoints() {
 
     messageDisplay.textContent =
         "✅ You're moving closer to clean water!";
+
     messageDisplay.style.color =
         "#159A48";
 
-    milestones.forEach(milestone => {
+    milestones.forEach((milestone) => {
 
         if (score === milestone.score) {
 
@@ -97,7 +94,8 @@ function gainPoints() {
     });
 
     if (progress >= winGoal) {
-        winGame();
+        messageDisplay.textContent =
+            "💧 Great job! Now reach the clean water!";
     }
 }
 
@@ -156,7 +154,7 @@ function reachGoal() {
     winGame();
 }
 
-/* Win */
+/* Win Game */
 
 function winGame() {
 
@@ -168,12 +166,10 @@ function winGame() {
 
     document.querySelectorAll(
         ".path, .goal"
-    ).forEach(button => {
+    ).forEach((button) => {
 
         button.disabled = true;
     });
-
-    /* Celebration flash */
 
     document.body.style.backgroundColor =
         "#4FCB53";
@@ -197,36 +193,37 @@ function resetGame() {
 
     progressBar.value = 0;
 
+    document.body.style.backgroundColor =
+        "#8BD1CB";
+
     messageDisplay.textContent =
         "💧 Game restarted. Clean the pollution and reach clean water!";
 
     messageDisplay.style.color =
         "#2E9DF7";
 
-    document.body.style.backgroundColor =
-        "#8BD1CB";
-
     document.querySelectorAll(
         ".path, .goal"
-    ).forEach(button => {
+    ).forEach((button) => {
 
         button.disabled = false;
     });
 
-    /* Restore Trash */
-
     const trashPath =
         document.querySelector(".trash-path");
 
-    trashPath.innerHTML = `
-        <div class="trash" onclick="cleanTrash(this)">🥤</div>
-        <div class="trash" onclick="cleanTrash(this)">🗑️</div>
-        <div class="trash" onclick="cleanTrash(this)">🧴</div>
-        <div class="trash" onclick="cleanTrash(this)">☣️</div>
-    `;
+    if (trashPath) {
+
+        trashPath.innerHTML = `
+            <div class="trash" onclick="cleanTrash(this)">🥤</div>
+            <div class="trash" onclick="cleanTrash(this)">🗑️</div>
+            <div class="trash" onclick="cleanTrash(this)">🧴</div>
+            <div class="trash" onclick="cleanTrash(this)">☣️</div>
+        `;
+    }
 
     document.getElementById("trash-count")
-        .textContent = 4;
+        .textContent = "4";
 }
 
 /* Initialize */
