@@ -1,15 +1,4 @@
-/* Charity: water Brand Colors
-
-Yellow:     #FFC907
-Blue:       #2E9DF7
-Light Blue: #8BD1CB
-Green:      #4FCB53
-Orange:     #FF902A
-Red:        #F5402C
-Dark Green: #159A48
-Pink:       #F16061
-
-*/
+/* Charity: water Brand Colors */
 
 * {
     margin: 0;
@@ -40,30 +29,16 @@ header {
     margin-bottom: 10px;
 }
 
-header h1 {
-    margin-bottom: 10px;
-}
-
-header p {
-    font-weight: 600;
-}
-
 /* DIFFICULTY */
 
 .difficulty-section {
     margin-bottom: 20px;
 }
 
-.difficulty-section label {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
 select {
     padding: 8px;
     border-radius: 8px;
     border: none;
-    font-size: 1rem;
 }
 
 /* SCORE */
@@ -88,11 +63,6 @@ select {
     margin-bottom: 20px;
 }
 
-.progress-section p {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
 progress {
     width: 300px;
     height: 25px;
@@ -101,7 +71,12 @@ progress {
 /* GAME BOARD */
 
 .game-board {
-    background-color: white;
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #e8f9ff
+    );
+
     max-width: 500px;
     margin: auto;
     padding: 25px;
@@ -109,20 +84,53 @@ progress {
 
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 /* PLAYER */
 
 .player {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #player-image {
-    width: 120px;
+    width: 60px;
+    height: auto;
     transition: all 0.3s ease;
+}
+
+/* INSTRUCTIONS */
+
+.instruction {
+    font-weight: bold;
+    color: #159A48;
+}
+
+/* TRASH AREA */
+
+.trash-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.trash {
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.trash:hover {
+    transform: scale(1.2);
+}
+
+/* GOAL */
+
+.goal-water {
+    font-size: 3rem;
 }
 
 /* BUTTONS */
@@ -133,7 +141,7 @@ button {
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform .2s ease;
 }
 
 button:hover {
@@ -141,17 +149,12 @@ button:hover {
 }
 
 button:disabled {
-    opacity: 0.5;
+    opacity: .5;
     cursor: not-allowed;
 }
 
 .path {
     background-color: #4FCB53;
-    color: white;
-}
-
-.obstacle {
-    background-color: #F5402C;
     color: white;
 }
 
@@ -168,51 +171,44 @@ button:disabled {
     font-weight: bold;
 }
 
-/* FEEDBACK MESSAGE */
+/* MESSAGE */
 
 #message {
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     min-height: 40px;
-    color: #159A48;
 }
 
-/* FACT SECTION */
+/* FACT BOX */
 
 .fact-box {
     margin: 20px auto;
-    max-width: 500px;
-    background-color: white;
+    max-width: 550px;
+    background: white;
     padding: 15px;
     border-radius: 12px;
-    line-height: 1.5;
 }
 
 /* FOOTER */
 
 footer {
     margin-top: 30px;
-    background-color: white;
+    background: white;
     padding: 20px;
     border-radius: 12px;
 }
 
-footer h3 {
-    margin-bottom: 10px;
-    color: #2E9DF7;
-}
-
 footer a {
     display: block;
-    margin: 10px 0;
+    margin-top: 10px;
+    color: #2E9DF7;
     text-decoration: none;
     font-weight: bold;
-    color: #159A48;
 }
 
 footer a:hover {
-    color: #FF902A;
+    color: #159A48;
 }
 
 /* MOBILE */
@@ -233,5 +229,13 @@ footer a:hover {
 
     .header-logo {
         width: 180px;
+    }
+
+    .trash {
+        font-size: 2rem;
+    }
+
+    #player-image {
+        width: 50px;
     }
 }
