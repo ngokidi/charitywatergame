@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dropy: Clean Water Quest</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Charity: water inspired font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,19 +27,35 @@
         <p>Help deliver clean water and avoid pollution!</p>
     </header>
 
+    <!-- Difficulty Selector -->
+    <section class="difficulty-section">
+        <label for="difficulty">Choose Difficulty:</label>
+
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+        </select>
+    </section>
+
+    <!-- Score -->
     <section class="game-info">
         <h2>Score: <span id="score">0</span></h2>
+        <h3>High Score: <span id="high-score">0</span></h3>
+    </section>
 
-    <section class="difficulty-section">
-    <h3>Select Difficulty</h3>
+    <!-- Progress -->
+    <section class="progress-section">
+        <p>Journey Progress</p>
 
-    <select id="difficulty" onchange="setDifficulty()">
-        <option value="easy">Easy</option>
-        <option value="normal" selected>Normal</option>
-        <option value="hard">Hard</option>
-    </select>
-</section>
+        <progress
+            id="progress-bar"
+            value="0"
+            max="5">
+        </progress>
+    </section>
 
+    <!-- Main Game -->
     <main class="game-board">
 
         <div class="player">
@@ -46,12 +70,12 @@
             ➡️ Move Forward
         </button>
 
-        <button class="obstacle" onclick="losePoints()">
-            🗑️ Avoid Trash
+        <button class="obstacle" onclick="losePoints(this)">
+            🗑️ Remove Trash
         </button>
 
-        <button class="obstacle" onclick="losePoints()">
-            ☣️ Polluted Water
+        <button class="obstacle" onclick="losePoints(this)">
+            ☣️ Remove Pollution
         </button>
 
         <button class="goal" onclick="reachGoal()">
@@ -64,25 +88,31 @@
         💧 Click "Move Forward" to begin your journey!
     </div>
 
+    <div class="fact-box">
+        Did you know? Every step toward clean water can improve health, education, and opportunity for communities around the world.
+    </div>
+
     <button class="reset-btn" onclick="resetGame()">
         Restart Game
     </button>
 
+    <footer>
+        <h3>Learn More About charity: water</h3>
+
+        <a
+            href="https://www.charitywater.org"
+            target="_blank">
+            Visit charity: water
+        </a>
+
+        <a
+            href="https://www.charitywater.org/donate"
+            target="_blank">
+            Donate to Support Clean Water
+        </a>
+    </footer>
+
     <script src="script.js"></script>
-
-<footer>
-    <h3>Learn More About charity: water</h3>
-
-    <a href="https://www.charitywater.org" target="_blank">
-        Visit Website
-    </a>
-
-    |
-
-    <a href="https://www.charitywater.org/donate" target="_blank">
-        Donate
-    </a>
-</footer>
 
 </body>
 </html>

@@ -1,16 +1,13 @@
 /* Charity: water Brand Colors
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
+Yellow:     #FFC907
+Blue:       #2E9DF7
+Light Blue: #8BD1CB
+Green:      #4FCB53
+Orange:     #FF902A
+Red:        #F5402C
+Dark Green: #159A48
+Pink:       #F16061
 
 */
 
@@ -21,7 +18,7 @@ Secondary Colors:
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     background-color: #8BD1CB;
     color: #333;
@@ -47,6 +44,28 @@ header h1 {
     margin-bottom: 10px;
 }
 
+header p {
+    font-weight: 600;
+}
+
+/* DIFFICULTY */
+
+.difficulty-section {
+    margin-bottom: 20px;
+}
+
+.difficulty-section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
 /* SCORE */
 
 .game-info {
@@ -56,10 +75,30 @@ header h1 {
     padding: 15px;
     border-radius: 12px;
     color: #2E9DF7;
+}
+
+.game-info h3 {
+    margin-top: 10px;
+    color: #159A48;
+}
+
+/* PROGRESS */
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.progress-section p {
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
-/* GAME AREA */
+progress {
+    width: 300px;
+    height: 25px;
+}
+
+/* GAME BOARD */
 
 .game-board {
     background-color: white;
@@ -72,7 +111,7 @@ header h1 {
     flex-direction: column;
     gap: 15px;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* PLAYER */
@@ -101,6 +140,11 @@ button:hover {
     transform: scale(1.05);
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .path {
     background-color: #4FCB53;
     color: white;
@@ -124,14 +168,51 @@ button:hover {
     font-weight: bold;
 }
 
-/* FEEDBACK */
+/* FEEDBACK MESSAGE */
 
 #message {
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: bold;
-    min-height: 35px;
+    min-height: 40px;
     color: #159A48;
+}
+
+/* FACT SECTION */
+
+.fact-box {
+    margin: 20px auto;
+    max-width: 500px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    color: #2E9DF7;
+}
+
+footer a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: #159A48;
+}
+
+footer a:hover {
+    color: #FF902A;
 }
 
 /* MOBILE */
@@ -146,52 +227,11 @@ button:hover {
         width: 100%;
     }
 
+    progress {
+        width: 90%;
+    }
+
     .header-logo {
         width: 180px;
-    }
-}
-
-.difficulty-section {
-    margin-bottom: 20px;
-}
-
-.difficulty-section select {
-    padding: 10px;
-    border-radius: 8px;
-}
-
-footer {
-    margin-top: 40px;
-    padding: 20px;
-    background: #FFC907;
-    border-radius: 15px;
-}
-
-footer a {
-    color: #2E9DF7;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.win-screen {
-    font-size: 1.5rem;
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
     }
 }
