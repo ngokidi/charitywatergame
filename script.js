@@ -147,3 +147,72 @@ function winGame() {
         "#2E9DF7";
 
     document.querySelectorAll(
+        ".path, .goal"
+    ).forEach(button => {
+        button.disabled = true;
+    });
+
+    document.body.style.backgroundColor =
+        "#4FCB53";
+
+    setTimeout(() => {
+
+        document.body.style.backgroundColor =
+            "#8BD1CB";
+
+    }, 1500);
+}
+
+/* Reset Game */
+
+function resetGame() {
+
+    score = 0;
+    progress = 0;
+
+    updateScore();
+
+    progressBar.value = 0;
+
+    messageDisplay.textContent =
+        "💧 Game restarted. Clean the pollution and reach clean water!";
+
+    messageDisplay.style.color =
+        "#2E9DF7";
+
+    player.style.transform = "none";
+
+    /* Re-enable buttons */
+
+    document.querySelectorAll(
+        ".path, .goal"
+    ).forEach(button => {
+        button.disabled = false;
+    });
+
+    /* Restore trash items */
+
+    const trashContainer =
+        document.querySelector(".trash-container");
+
+    trashContainer.innerHTML = `
+        <div class="trash obstacle-item" onclick="cleanTrash(this)">🥤</div>
+        <div class="trash obstacle-item" onclick="cleanTrash(this)">🗑️</div>
+        <div class="trash obstacle-item" onclick="cleanTrash(this)">🧴</div>
+        <div class="trash obstacle-item" onclick="cleanTrash(this)">☣️</div>
+    `;
+
+    document.getElementById("trash-count").textContent = 4;
+}
+
+/* Initial Setup */
+
+document
+    .getElementById("difficulty")
+    .addEventListener(
+        "change",
+        updateDifficulty
+    );
+
+updateDifficulty();
+updateScore();
