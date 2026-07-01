@@ -21,7 +21,16 @@
 
     <section class="game-info">
         <h2>Score: <span id="score">0</span></h2>
-    </section>
+
+    <section class="difficulty-section">
+    <h3>Select Difficulty</h3>
+
+    <select id="difficulty" onchange="setDifficulty()">
+        <option value="easy">Easy</option>
+        <option value="normal" selected>Normal</option>
+        <option value="hard">Hard</option>
+    </select>
+</section>
 
     <main class="game-board">
 
